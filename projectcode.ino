@@ -12,7 +12,7 @@ void setup() {
   Serial.begin(57600);
   Serial.println("Make sure there is no load okay?");
   scale.begin(LOADCELL_DOUT_PIN, LOADCELL_SCK_PIN);
-  scale.set_scale(96.3);                      // this value is obtained by calibrating the scale with known weights; see the README for details
+  scale.set_scale(96.3);                      // this value is obtained by calibrating the scale with known weights; 
   scale.tare(50);                        // reset the scale to 0
   Serial.println("Go weight it");
   myservo.attach(8);
@@ -32,9 +32,10 @@ void loop() {
   Serial.print("TestWt= " );
   Serial.println(berat);
   
+  //testing weights 
   if(berat<500)
   {
-     Serial.print(" Weight<500; g="); 
+     Serial.print(" Weight<500; g="); //prints are only using while testing.
      Serial.print(berat); 
   
   }
@@ -47,7 +48,7 @@ void loop() {
   // scale.power_down();
   delay(10);
   // scale.power_up();
-  
+  //conditions for servo motor actions
   if(berat<500) {
     Serial.println("  Servo=180"); 
     Serial.println(); 
